@@ -5,7 +5,9 @@ UPDATE <table name> SET <attribute>= val WHERE <attribute> = value;
 DELETE FROM <table name> WHERE <attribute> = value;
 ```
 #### 2.Explain the structure for each type of command.
-
+- Insert into is used to add data to tables by specifying the table name and the declaring the values to be added.
+- Update is used to change existing data by declaring the table and setting a specific attribute to a value.
+- Delete is for removing data. Again, you specify the table and use a comparison operator in a where clause.
 #### 3.What are some the data types that can be used in tables? Give a real world example of each.
 
 ---
