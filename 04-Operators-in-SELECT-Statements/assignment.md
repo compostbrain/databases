@@ -94,6 +94,10 @@ SELECT * FROM cats;
 - Choose one cat of each age to show to potential adopters.
 
 ```SQL
+SELECT DISTINCT ON(age) * FROM cats;
+```
+or
+```SQL
 SELECT name FROM cats WHERE age = 1 LIMIT 1;
 SELECT name FROM cats WHERE age = 3 LIMIT 1;
 SELECT name FROM cats WHERE age = 7 LIMIT 1;
