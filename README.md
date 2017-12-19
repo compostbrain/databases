@@ -1,2 +1,2 @@
 # databases
-bloc databases asignments
+bloc databases assignments
