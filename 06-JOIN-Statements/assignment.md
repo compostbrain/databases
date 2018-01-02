@@ -1,3 +1,4 @@
+
 #### 1. How do you find data that is held in two separate data tables?
 Using join statements
 #### 2. Explain, in your own words, the difference between a CROSS JOIN, INNER JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, and FULL OUTER JOIN. Give a real world example for each.
@@ -81,7 +82,7 @@ select * from adopters cross join dogs where in_foster = false;
 - Display a list of all cats and all dogs who have not been adopted.
 
 ```SQL
-select * from cats full outer join dogs on dogs.adoption_date = null or cats.adoption_date = null;
+select * from cats full outer join dogs on dogs.adoption_date = null or cats.adoption_date = null;join the adoptions table
 ```
 
 - Create a list of volunteers who are available to foster. If they currently are fostering a dog, include the dog. Also include all dogs who are not currently in foster homes.
@@ -134,7 +135,7 @@ from Transactions t
 inner join Books b
 on t.isbn= b.isbn
 where t.checked_out_date >= date_trunc('month', current_date - interval '1' month)
-  and t.checked_out_date < date_trunc('month', current_date)
+  and t.checked_out_date < date_trunc('month', current_date);
 ```
 
 - In order to learn which items should be retired, make a list of all books that have not been checked out in the past 5 years.
