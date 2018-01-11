@@ -130,12 +130,12 @@ left outer join Transactions as t on b.isbn = t.isbn;
 - In an effort to learn which books take longer to read, the librarians would like you to create a list of total checked out time by book name in the past month.
 
 ```SQL
-SELECT b.title, sum(t.checked_in_date - t.checked_out_date)
+SELECT b.title, sum(t.check_in_date - t.check_out_date)
 from Transactions t
 inner join Books b
 on t.isbn= b.isbn
-where t.checked_out_date >= date_trunc('month', current_date - interval '1' month)
-  and t.checked_out_date < date_trunc('month', current_date);
+where t.check_out_date > current_date - 30
+group by b.title;
 ```
 
 - In order to learn which items should be retired, make a list of all books that have not been checked out in the past 5 years.
@@ -152,10 +152,12 @@ and t.date > current_date - integer 1825;
 - List all of the library patrons. If they have one or more books checked out, correspond the books to the patrons.
 
 ```SQL
-select p.name, b.name
-from Patron p
+select p.name, b.title
+from Patrons p
 left join Transactions t
 on p.id = t.user_id
 left join Books b
-on t.isbn = b.isbn;
+on t.isbn = b.isbn
+where t.check_out_date is not null
+and t.check_in_date is null;
 ```
